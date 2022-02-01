@@ -24,11 +24,6 @@ public class ErrorCalc : MonoBehaviour
     public Quaternion R4;
     public Quaternion R5;
     public GameObject pseudoSpin;
-    public GameObject H;
-    public GameObject LH;
-    public GameObject RH;
-    public GameObject LP;
-    public GameObject RP;
     public Quaternion Qinitial;
     public Quaternion RR; //referenced rotation
 
@@ -169,14 +164,13 @@ public class ErrorCalc : MonoBehaviour
 
     void GetData(Transform v1, Transform v2, Transform v3, Transform v4, Transform v5)
     {
-        // serious attempt to count rotations and speed of it.
+        // count rotations and speed of them.
         deltaR = R33 - prevR;
         if (deltaR > 350) { deltaR = deltaR - 360; }
         if (deltaR < -350) { deltaR = deltaR + 360; }
 
         totalR += deltaR;
         prevR = R33;
-
 
         Rounds = totalR / 360;
 
